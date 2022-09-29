@@ -1,9 +1,10 @@
-package giis.demo.util;
+package giis.demo.util.ui;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import giis.demo.coiipa.*;
+import giis.demo.util.db.Database;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -53,15 +54,15 @@ public class SwingMain {
 		frame.setBounds(0, 0, 287, 185);
 		frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		
-		JButton btnEjecutarTkrun = new JButton("Ejecutar giis.demo.tkrun");
-		btnEjecutarTkrun.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
+		JButton btnEjecutarMain = new JButton("Ejecutar giis.demo.tkrun");
+		btnEjecutarMain.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
 			public void actionPerformed(ActionEvent e) {
-				CarrerasController controller=new CarrerasController(new CarrerasModel(), new CarrerasView());
-				controller.initController();
+				MainWindow w = new MainWindow();
+				w.setVisible(true);
 			}
 		});
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
-		frame.getContentPane().add(btnEjecutarTkrun);
+		frame.getContentPane().add(btnEjecutarMain);
 		
 			
 		JButton btnInicializarBaseDeDatos = new JButton("Inicializar Base de Datos en Blanco");

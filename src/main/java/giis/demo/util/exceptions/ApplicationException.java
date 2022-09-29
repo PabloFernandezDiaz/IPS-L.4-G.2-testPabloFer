@@ -1,4 +1,4 @@
-package giis.demo.util;
+package giis.demo.util.exceptions;
 
 /**
  * Excepcion producida por la aplicacion antes situaciones que no deberian ocurrir pero que son controladas
