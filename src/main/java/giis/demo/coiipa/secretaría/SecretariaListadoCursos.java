@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
+import javax.swing.DefaultListModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class SecretariaListadoCursos extends JFrame {
 
@@ -55,16 +58,18 @@ public class SecretariaListadoCursos extends JFrame {
 	}
 	public JList getListListadoCursos() {
 		if (listListadoCursos == null) {
-			listListadoCursos = new JList();
-			listListadoCursos.setModel(new AbstractListModel() {
-				String[] values = new String[] {"a"};
-				public int getSize() {
-					return values.length;
-				}
-				public Object getElementAt(int index) {
-					return values[index];
-				}
-			});
+			DefaultListModel<CursosDisplayDTO> modelolist = new DefaultListModel<CursosDisplayDTO>();
+			listListadoCursos = new JList<CursosDisplayDTO>(modelolist);
+			
+//			listListadoCursos.setModel(new AbstractListModel() {
+//				String[] values = new String[] {"a"};
+//				public int getSize() {
+//					return values.length;
+//				}
+//				public Object getElementAt(int index) {
+//					return values[index];
+//				}
+//			});
 		}
 		return listListadoCursos;
 	}

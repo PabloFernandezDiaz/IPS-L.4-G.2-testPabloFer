@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import giis.demo.util.db.Database;
@@ -12,10 +13,18 @@ public class SecretariaModel {
 
 	private Database db=new Database();
 	
-	public List<CursosEntity> obtenerListadoCursos() {
+	public List<CursosDisplayDTO> obtenerListadoCursos() {
 		
-		String querry = "Select * from cursos";
-		return db.executeQueryPojo(CursosEntity.class, querry)	;
+		List<CursosDisplayDTO> test = new ArrayList<CursosDisplayDTO>();
+		
+		test.add(new CursosDisplayDTO(1, "patata", 0, "1", "2", 10, "10", "30"));
+		test.add(new CursosDisplayDTO(1, "patata2", 0, "1", "2", 10, "10", "30"));
+		test.add(new CursosDisplayDTO(1, "patata3", 0, "1", "2", 10, "10", "30"));
+		test.add(new CursosDisplayDTO(1, "patata4", 0, "1", "2", 10, "10", "30"));
+		return test;
+//		String querry = "Select * from cursos";
+//		return db.executeQueryPojo(CursosDisplayDTO.class, querry)	;
+
 		
 	}
 	

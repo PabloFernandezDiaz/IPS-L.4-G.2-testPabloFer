@@ -1,5 +1,12 @@
 package giis.demo.coiipa.secretaría;
 
+import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.List;
+
+import javax.swing.AbstractListModel;
+import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
 import giis.demo.util.ui.SwingUtil;
@@ -8,6 +15,19 @@ public class SecretariaController {
 		
 	private SecretariaModel model;
 	private SecretariaListadoCursos LisCursos;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SecretariaController frame = new SecretariaController( new SecretariaModel(), new SecretariaListadoCursos());
+					//frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	
 	public SecretariaController(SecretariaModel model, SecretariaListadoCursos LisCursos) {
 		
@@ -27,7 +47,22 @@ public class SecretariaController {
 		// TODO Auto-generated method stub
 		//LisCursos.getListListadoCursos().setModel( SwingUtil.getTableModelFromPojos( model.obtenerListadoCursos(),
 			//	new String[] {"C_ID", "Titulo", "precio", "fecha", "estado", "plazas", "fechInicio", "fechFinal"}));
-		LisCursos.getListListadoCursos().setModel( new ListModel( model.obtenerListadoCursos())));
+		List<CursosDisplayDTO> lista = model.obtenerListadoCursos();
+		DefaultListModel<CursosDisplayDTO> modelolist = new DefaultListModel<CursosDisplayDTO>(); 
+		for(int i=0; i<lista.size();i++) {
+			modelolist.addElement(lista.get(i));
+		}
+		//LisCursos.getListListadoCursos().getModel();
+		LisCursos.getListListadoCursos().addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent event)
+			{
+			  if (event.getClickCount() == 2 && event.getButton() == MouseEvent.BUTTON1) {
+			    System.out.println("double clicked"+LisCursos.getListListadoCursos().getSelectedValue());
+			  }
+			}
+		});
+		LisCursos.getListListadoCursos().setModel( modelolist);
 
 	}
 	
