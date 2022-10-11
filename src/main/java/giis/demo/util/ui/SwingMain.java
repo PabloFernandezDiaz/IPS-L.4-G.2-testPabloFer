@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import giis.demo.coiipa.*;
+import giis.demo.coiipa.secretaría.SecretariaController;
+import giis.demo.coiipa.secretaría.SecretariaListadoCursos;
+import giis.demo.coiipa.secretaría.SecretariaModel;
 import giis.demo.util.db.Database;
 
 import javax.swing.BoxLayout;
@@ -57,6 +60,7 @@ public class SwingMain {
 		JButton btnEjecutarMain = new JButton("Ejecutar giis.demo.tkrun");
 		btnEjecutarMain.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
 			public void actionPerformed(ActionEvent e) {
+				SecretariaController sc= new SecretariaController(new SecretariaModel(), new SecretariaListadoCursos());
 				MainWindow w = new MainWindow();
 				w.setVisible(true);
 			}

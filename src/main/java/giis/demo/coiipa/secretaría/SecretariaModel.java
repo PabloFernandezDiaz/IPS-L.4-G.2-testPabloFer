@@ -17,15 +17,22 @@ public class SecretariaModel {
 		
 		List<CursosDisplayDTO> test = new ArrayList<CursosDisplayDTO>();
 		
-		test.add(new CursosDisplayDTO(1, "patata", 0, "1", "2", 10, "10", "30"));
-		test.add(new CursosDisplayDTO(1, "patata2", 0, "1", "2", 10, "10", "30"));
-		test.add(new CursosDisplayDTO(1, "patata3", 0, "1", "2", 10, "10", "30"));
-		test.add(new CursosDisplayDTO(1, "patata4", 0, "1", "2", 10, "10", "30"));
-		return test;
-//		String querry = "Select * from cursos";
-//		return db.executeQueryPojo(CursosDisplayDTO.class, querry)	;
+//		test.add(new CursosDisplayDTO(1, "patata", 0, "1", "2", 10, "10", "30"));
+//		test.add(new CursosDisplayDTO(1, "patata2", 0, "1", "2", 10, "10", "30"));
+//		test.add(new CursosDisplayDTO(1, "patata3", 0, "1", "2", 10, "10", "30"));
+//		test.add(new CursosDisplayDTO(1, "patata4", 0, "1", "2", 10, "10", "30"));
+//		return test;
+		String querry = "Select c_id,titulo,precio,fecha,estado,plazas,ins_inicio,ins_final  from curso";
+		return db.executeQueryPojo(CursosDisplayDTO.class, querry)	;
 
 		
+	}
+	public List<Object[]> obtenerListadoInscritosPorCurso(String id) {
+		
+		String querry = "Select c.nombre, c.apellidos  from colegiado c, inscrito_en i where i.n_colegiado = c.n_colegiado and i.c_id = ?";
+		//ESTADO VARCHAR(15) CHECK (ESTADO IN ('PRE-INSCRITO','INSCRITO','CANCELADO'))
+		
+		return db.executeQueryArray(querry, id);
 	}
 	
 }
