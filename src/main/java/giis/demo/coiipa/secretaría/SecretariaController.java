@@ -15,6 +15,7 @@ public class SecretariaController {
 		
 	private SecretariaModel model;
 	private SecretariaListadoCursos LisCursos;
+	private SecretariaListadoInscritos lisInsc;
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -47,8 +48,8 @@ public class SecretariaController {
 		// TODO Auto-generated method stub
 		//LisCursos.getListListadoCursos().setModel( SwingUtil.getTableModelFromPojos( model.obtenerListadoCursos(),
 			//	new String[] {"C_ID", "Titulo", "precio", "fecha", "estado", "plazas", "fechInicio", "fechFinal"}));
-		List<CursosDisplayDTO> lista = model.obtenerListadoCursos();
-		DefaultListModel<CursosDisplayDTO> modelolist = new DefaultListModel<CursosDisplayDTO>(); 
+		List<CursoDisplayDTO> lista = model.obtenerListadoCursos();
+		DefaultListModel<CursoDisplayDTO> modelolist = new DefaultListModel<CursoDisplayDTO>(); 
 		for(int i=0; i<lista.size();i++) {
 			modelolist.addElement(lista.get(i));
 		}
@@ -59,6 +60,15 @@ public class SecretariaController {
 			{
 			  if (event.getClickCount() == 2 && event.getButton() == MouseEvent.BUTTON1) {
 			    System.out.println("double clicked"+LisCursos.getListListadoCursos().getSelectedValue());
+			    lisInsc= new SecretariaListadoInscritos();
+			    List<Object[]> listadoAl=	model.obtenerListadoInscritosPorCurso(((CursoDisplayDTO)LisCursos.getListListadoCursos().getSelectedValue()).getC_id());
+			    
+			    DefaultListModel<Object[]> modelolist = new DefaultListModel<Object[]>(); 
+				for(int i=0; i<listadoAl.size();i++) {
+					modelolist.addElement(listadoAl.get(i));
+				}
+				lisInsc.getListInsc().setModel(modelolist);
+				lisInsc.setVisible(true);
 			  }
 			}
 		});

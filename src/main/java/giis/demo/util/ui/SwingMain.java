@@ -61,8 +61,8 @@ public class SwingMain {
 		btnEjecutarMain.addActionListener(new ActionListener() { //NOSONAR codigo autogenerado
 			public void actionPerformed(ActionEvent e) {
 				SecretariaController sc= new SecretariaController(new SecretariaModel(), new SecretariaListadoCursos());
-				MainWindow w = new MainWindow();
-				w.setVisible(true);
+				//MainWindow w = new MainWindow();
+				//w.setVisible(true);
 			}
 		});
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));

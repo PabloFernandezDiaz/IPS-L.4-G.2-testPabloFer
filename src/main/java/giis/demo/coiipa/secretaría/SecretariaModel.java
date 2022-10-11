@@ -13,9 +13,9 @@ public class SecretariaModel {
 
 	private Database db=new Database();
 	
-	public List<CursosDisplayDTO> obtenerListadoCursos() {
+	public List<CursoDisplayDTO> obtenerListadoCursos() {
 		
-		List<CursosDisplayDTO> test = new ArrayList<CursosDisplayDTO>();
+		List<CursoDisplayDTO> test = new ArrayList<CursoDisplayDTO>();
 		
 //		test.add(new CursosDisplayDTO(1, "patata", 0, "1", "2", 10, "10", "30"));
 //		test.add(new CursosDisplayDTO(1, "patata2", 0, "1", "2", 10, "10", "30"));
@@ -23,7 +23,7 @@ public class SecretariaModel {
 //		test.add(new CursosDisplayDTO(1, "patata4", 0, "1", "2", 10, "10", "30"));
 //		return test;
 		String querry = "Select c_id,titulo,precio,fecha,estado,plazas,ins_inicio,ins_final  from curso";
-		return db.executeQueryPojo(CursosDisplayDTO.class, querry)	;
+		return db.executeQueryPojo(CursoDisplayDTO.class, querry)	;
 
 		
 	}

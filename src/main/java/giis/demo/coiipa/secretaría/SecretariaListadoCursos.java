@@ -58,8 +58,8 @@ public class SecretariaListadoCursos extends JFrame {
 	}
 	public JList getListListadoCursos() {
 		if (listListadoCursos == null) {
-			DefaultListModel<CursosDisplayDTO> modelolist = new DefaultListModel<CursosDisplayDTO>();
-			listListadoCursos = new JList<CursosDisplayDTO>(modelolist);
+			DefaultListModel<CursoDisplayDTO> modelolist = new DefaultListModel<CursoDisplayDTO>();
+			listListadoCursos = new JList<CursoDisplayDTO>(modelolist);
 			
 //			listListadoCursos.setModel(new AbstractListModel() {
 //				String[] values = new String[] {"a"};

@@ -1,2 +1,3 @@
 
 insert into curso (c_id,titulo,precio,fecha,estado,plazas,ins_inicio,ins_final) values (0,'tester0',100,'2023-01-01', 'PLANIFICADO', null,null,null),(1,'tester1',101,'2023-02-02', 'ABIERTO', 100 ,null,null),(2,'tester2',102,'2023-03-03', 'PLANIFICADO', 100 ,null,null);
+insert into COLEGIADO (N_COLEGIADO,PRECOLEG,ESTADO,DNI,NOMBRE,APELLIDOS,POBLACION,TELEFONO,TITULACION,CENTRO,AÑO,ISBN) values (0,'patata',100,'2023-01-01', 'PLANIFICADO', null,null,null),(1,'tester1',101,'2023-02-02', 'ABIERTO', 100 ,null,null),(2,'tester2',102,'2023-03-03', 'PLANIFICADO', 100 ,null,null);
