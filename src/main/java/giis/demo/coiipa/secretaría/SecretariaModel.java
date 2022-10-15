@@ -15,7 +15,7 @@ public class SecretariaModel {
 	
 	public List<CursoDisplayDTO> obtenerListadoCursos() {
 		
-		List<CursoDisplayDTO> test = new ArrayList<CursoDisplayDTO>();
+//		List<CursoDisplayDTO> test = new ArrayList<CursoDisplayDTO>();
 		
 //		test.add(new CursosDisplayDTO(1, "patata", 0, "1", "2", 10, "10", "30"));
 //		test.add(new CursosDisplayDTO(1, "patata2", 0, "1", "2", 10, "10", "30"));
@@ -27,12 +27,29 @@ public class SecretariaModel {
 
 		
 	}
-	public List<Object[]> obtenerListadoInscritosPorCurso(String id) {
+	public List<InscritosDisplayDTO> obtenerListadoInscritosPorCurso(String id) {
 		
-		String querry = "Select c.nombre, c.apellidos  from colegiado c, inscrito_en i where i.n_colegiado = c.n_colegiado and i.c_id = ?";
+		String querry = "Select c.nombre, c.apellidos, i.estado  from colegiado c, inscrito_en i where i.n_colegiado = c.n_colegiado and i.c_id = ? order by c.apellidos";
+		//ESTADO VARCHAR(15) CHECK (ESTADO IN ('PRE-INSCRITO','INSCRITO','CANCELADO'))
+		
+		//return db.executeQueryArray(querry, id);
+		//db.executeQueryPojo(InscritosDisplayDTO.class, querry, id); //por algun motivo no hace la conversion al dto y peta
+		List<InscritosDisplayDTO> temp = new ArrayList<InscritosDisplayDTO>();
+		
+		List<Object[]> t=  obtenerListadoInscritosPorCurso2(id);
+		for(Object[] n : t) {
+			temp.add(new InscritosDisplayDTO(n[0].toString(),n[1].toString(),n[2].toString()));
+		}
+		
+		return temp;
+	}
+	public List<Object[]> obtenerListadoInscritosPorCurso2(String id) {
+		
+		String querry = "Select c.nombre, c.apellidos, i.estado  from colegiado c, inscrito_en i where i.n_colegiado = c.n_colegiado and i.c_id = ? order by c.apellidos";
 		//ESTADO VARCHAR(15) CHECK (ESTADO IN ('PRE-INSCRITO','INSCRITO','CANCELADO'))
 		
 		return db.executeQueryArray(querry, id);
+		
 	}
 	
 }

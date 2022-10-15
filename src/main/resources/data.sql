@@ -1,3 +1,4 @@
 
 insert into curso (c_id,titulo,precio,fecha,estado,plazas,ins_inicio,ins_final) values (0,'tester0',100,'2023-01-01', 'PLANIFICADO', null,null,null),(1,'tester1',101,'2023-02-02', 'ABIERTO', 100 ,null,null),(2,'tester2',102,'2023-03-03', 'PLANIFICADO', 100 ,null,null);
-insert into COLEGIADO (N_COLEGIADO,PRECOLEG,ESTADO,DNI,NOMBRE,APELLIDOS,POBLACION,TELEFONO,TITULACION,CENTRO,AÑO,ISBN) values (0,'patata',100,'2023-01-01', 'PLANIFICADO', null,null,null),(1,'tester1',101,'2023-02-02', 'ABIERTO', 100 ,null,null),(2,'tester2',102,'2023-03-03', 'PLANIFICADO', 100 ,null,null);
+insert into COLEGIADO (COLEGIADO_ID,N_COLEGIADO,PRECOLEG,ESTADO,FECHA_SOLICITUD,DNI,NOMBRE,APELLIDOS,POBLACION,TELEFONO,TITULACION,CENTRO,YEAR,ISBN) values ('1','0',1,'ACEPTADO','2020-02-02','00000001f', 'Patata','Asada','Huerta de la esquina',983643192,'graduado en regadio','escuela de patatas',2021,12345),('012','012',0,'ACEPTADO',2019-03-03,'00000021f', 'Boniato','Asada','Huerta de la esquina',983343431,'graduado en regadio','escuela de patatas',2021,123245);
+insert into INSCRITO_EN (N_COLEGIADO,ESTADO,C_ID) VALUES ('0','PRE-INSCRITO',0),('012','INSCRITO',0);

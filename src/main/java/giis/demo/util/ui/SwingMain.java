@@ -5,8 +5,8 @@ import javax.swing.JFrame;
 
 import giis.demo.coiipa.*;
 import giis.demo.coiipa.secretaría.SecretariaController;
-import giis.demo.coiipa.secretaría.SecretariaListadoCursos;
 import giis.demo.coiipa.secretaría.SecretariaModel;
+import giis.demo.coiipa.secretaría.view.SecretariaListadoCursos;
 import giis.demo.util.db.Database;
 
 import javax.swing.BoxLayout;
